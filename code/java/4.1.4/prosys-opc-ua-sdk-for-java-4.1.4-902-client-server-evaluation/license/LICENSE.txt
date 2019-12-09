@@ -1,0 +1,26 @@
+Use of Prosys OPC UA SDK for Java is under several license agreements.
+
+LICENSE
+
+Prosys SDK license
+
+  Prosys OPC UA SDK for Java is covered by the license terms in 
+
+  Prosys_OPC_UA_SDK_for_Java_License.pdf
+
+Libraries
+
+  The SDK uses the following libraries, which are covered by individual licenses,
+  available in the following files.
+
+    -- JAR --             -- Library --                       -- License file --
+'lib' folder:
+slf4j*.jar            Simple Logging Facade for Java (SLF4j)  LICENSE.slf4j
+bc*.jar               Bouncy Castle security                  LICENSE.bouncycastle
+http*.jar             Apache HttpComponents                   LICENSE.apache2.0
+commons-logging*.jar  Apache Commons Logging Component        LICENSE.apache2.0
+commons-codec*.jar    Apache Commons Codec                    LICENSE.apache2.0
+log4j*.jar            Apache Logging Services                 LICENSE.apache2.0 
+
+'lib-android' folder:
+*.jar                 Spongy Castle security                  LICENSE.bouncycastle

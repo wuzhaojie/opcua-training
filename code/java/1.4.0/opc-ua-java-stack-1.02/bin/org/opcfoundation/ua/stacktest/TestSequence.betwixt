@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes="attribute">
+	<element name='TestSequence'>
+		<element name='TestCase' property='testCases' class="org.opcfoundation.ua.stacktest.TestCase"/>
+		<addDefaults/>
+	</element>
+</info>

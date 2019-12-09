@@ -1,0 +1,25 @@
+The code generator is part of the Prosys OPC UA SDK for Java, the files described below can be found in the root folder of the SDK package.
+
+LICENSE
+
+Prosys SDK license
+
+  Prosys OPC UA SDK for Java is covered by the license terms in 
+
+  Prosys_OPC_UA_SDK_for_Java_License.pdf
+
+Libraries
+
+  The code generator uses the following libraries, which are covered by individual licenses,
+  available in the following files (in the 'license'-folder of the SDK package). 
+  
+  Under LICENSE.apache2.0:
+  Apache Commons Lang3, Collections, Configuration2, BeanUtils, Text, CLI, Logging (https://commons.apache.org/)
+  Log4j, https://logging.apache.org/log4j/1.2/
+  Guice, https://github.com/google/guice
+  Guava, https://github.com/google/guava
+  JavaPoet, https://github.com/square/javapoet
+  
+  Others:
+  Slf4j, https://www.slf4j.org/, LICENSE.slf4j
+  EclipseLink MOXy, https://www.eclipse.org/eclipselink/#moxy, https://www.eclipse.org/legal/epl-v10.html, https://www.eclipse.org/org/documents/edl-v10.php

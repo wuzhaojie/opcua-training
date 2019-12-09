@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<codegenConfiguration>
+
+	<!-- Mapping of UA Namespace -> Java package -->
+	<namespaceMappings>
+		<!-- Add mapping to your model(s) namespace(s) here -->
+		<!-- Each mapping must have unique java package name -->
+		<namespaceMapping>
+			<uri>http://ua.prosysopc.com/SampleTypes</uri>
+			<packageName>example.packagename</packageName>
+		</namespaceMapping>
+	</namespaceMappings>
+
+	<!-- Defines where models are loaded from -->
+	<!-- app.home is set by the launcher scripts to parent directory of the 
+		launch scripts -->
+	<modelSources>
+		<modelSource>${app.home}/models</modelSource>
+	</modelSources>
+
+	<!-- These define which namespace should be generated and which templates 
+		to use. See the Codegen Manual about the possible Generation Targets. -->
+	<generates>
+		<generate>
+			<targets>impl_all</targets>
+			<uris>
+				<!-- Multiple uris possible -->
+				<uri>http://ua.prosysopc.com/SampleTypes</uri>
+			</uris>
+			<outputs>
+				<code>${app.home}/sampletypes/output_code_implementation</code>
+				<resources>${app.home}/sampletypes/output_code_implementation</resources>
+			</outputs>
+		</generate>
+	</generates>
+
+	<enhancements>
+		<!-- Optionally define a header to generate for each file. Every line is 
+			prepended with '//'. -->
+		<fileHeader>
+			<line>Generated from SampleTypes</line>
+			<line>by Prosys OPC UA Java SDK Codegen</line>
+		</fileHeader>
+	</enhancements>
+</codegenConfiguration>

@@ -1,0 +1,323 @@
+1.4.1
+New (#185): Support for ReverseHello (see the ReverseHelloClientServerExample)
+New: Better configuration of initial timeouts in opc.tcp connections (see OpcTcpSettings)
+Fixed (#187): Changed the 'https' urls in examples to be 'opc.https' to match #159 changes made in 1.4.0
+
+1.4.0
+A major release, containing basic support for OPC UA 1.04. 
+
+Important (#159): Fixed HTTPS. Server no longer does client side TLS checks as per part 6. Note that the result means that proper UA HTTPS made with 'None' SecurityMode provides only encryption, not application level authentication. If used in conjunction with UserTokenPolicy Anonymous, anyone can access the server (but the traffic is encrypted, behaves like a normal web server/page). SecurityModes with Sign MessageSecurityMode should be used instead if application level authentication is required (and this then uses the same certs as opc.tcp). Additionally based on 1.04 Part 6, the scheme name is now 'opc.https' (instead of old 'https'), which is a breaking change. The stack 1.4.0 only supports this new scheme. Additionally added SecurityMode getter for EndpointServiceRequest to accommodate other than None modes, as the channel is shared between all HTTPS clients, and therefore cannot be used to determine client selection. Please read 1.04 specification Part 6 for more information.
+
+Important (#164): Moved SunJCE based Crypto and CertificateProvider outside of the stack. See folder 'graveyard' of the repo. They are not expected to work in modern java 9+ versions due to having dependencies to the internal api of the JRE. Additionally they did not work properly in all situations anyway nor were able to support full feature set required by the interfaces/UA. As a result the Bouncy/SpongyCastle in practice is a mandatory dependency to the stack (outside of implementing your own Crypto/CertificateProvider).
+
+Important (#121): SecurityMode constants moved to SecurityPolicy (which is also now enum). HttpsSecurityPolicy is also an enum. SecurityMode.combinations method can be used to make permutations of MessageSecurityMode+SecurityPolicy. This avoids the possible confusions on what is considered 'secure' (sign? or only signAndEncrypt?) as now the constants only define what policies which version of the specification consideres secure. Additionally removed the ALL constant, as users should make the choice about which modes to support. Please read 1.04 Part 7 and determine which policies your application supports (some of them are considered deprecated in 1.04, but are heavily used in the industry still).
+
+Fixed (#12): ExpandeNodeIds no longer defines the uri always for the 0-namespace.
+Fixed (#33): Names of threads are more descriptive, can be configured. See StackUtils class.
+Fixed (#89): Handing of unknown built-in type ids (with assumptions, see the issue)
+Fixed (#102): SpongyCastle should be picked up on android better
+Fixed (#157): Reflection should no longer provide warnings on java 9+
+Fixed (#177): Possible memory leak if StackUtils.shutdown and stack is "restarted". Removed ThreadGroups.
+Fixed (#180): ExtensionObject.binaryEncode was overriding the EncoderContext permanently.
+
+Changed (#169): Changed BinaryEncoder mode to be NonStrict by default. All usecases of the stack codebase always changed it to be NonStrict.
+Changed (#179): ExtensionObject now uses ByteString in places where it previously used byte[].
+Changed (#182): MultidimensionArrayUtils.toString does not by default decode ExtensionObjects. 
+Changed (#168): Removed EncoderCalc. Refactored logic to avoid precalc for the size where possible. 
+
+New (#136): Regenerated classes based on 1.04 resource files (with currently released amendments 1,2,3 for 1.04).
+New (#160): New UA Type Decimal, mapped to Java BigDecimal (with assumptions, see the issue).
+New (#161): Multidimensional array encoding rules outside of Variant.
+New (#163): Support for new security policies defined in 1.04
+New (#168): LimitedByteArrayOutputStream and SizeCalculationOutputStream. Can be used with BinaryEncoder in situations where EncoderCalc was previously used.
+New (#176): Added a server-side timestamp to EndpointServiceRequest.
+New (#178): Added static valueOf(String) method to the unsigned types to match jdk ones.
+New (#174): Added Automatic-Module-Name 'org.opcfoundation.ua.stack' to the manifest. Should help when running in Java 9+ module system. 
+
+
+1.3.346
+Fixed (#167): Removed redundant Message size calculation in TcpConnection.encodeMessage
+Fixed: Added .setProvider("BC") to BouncyCastleUtils.writeToPem as like in others methods of that class
+
+1.3.345
+Fixed (#83): Fixed NPE if equals was called for lazily encoded ExtensionObject
+Fixed (#150): First tcp message "UA Hello" was segmented, added buffering to avoid tcp fragments of one byte
+Fixed (#154): ErrorMessage was sent twice during forming secure channel if there was errors, caused problems vs. Foundation C-stack
+Fixed (#155): BinaryDecoder.getExpandedNodeId failed for standard numeric ids in range 128-255
+
+Fixed: ExpandedNodeId.toString uses 'svr' instead of 'srv' for server index output. This is expected by ExpandedNodeId.parseExpandedNodeId and is also the specified as such in the XML encoding for ExpandedNodeId.
+Improved: logging and allowing override for logic added in 1.3.344 for disabling the DTD processing in XML
+New: static `TcpConnection.setDefaultHandshakeTimeout` which can be used to set a lower timeout default for the initial connection from the default 60000 (milliseconds). Operating System settings influences the maximum possible value, in practice it would see to be at max 20 seconds on e.g. Windows defaults.
+
+
+1.03.342.0
+API Change (#81): Create ByteString class, mapping UA ByteString to ByteString instead of byte[], affects API, request/responses and e.g. NodeId opaque value type. 
+
+Fixed (#8): SampleClient uses the #22 cert store and validation
+Fixed (#9): StringUtils.addLineBreaks is now used when storing Cert and PrivKey in pem mode
+Fixed (#13): Fixed a problem where server socket goes to unrecoverable CLOSE_WAIT state
+Fixed (#23): Cert chain is now validated until a root CA is found
+Fixed (#44): Sun JCE Crypto/Certificate fallback is now by default disabled 
+Fixed (#77): EncoderUtils: Array of Structures is serialized correctly
+Fixed (#82): Variant accepts any dimension (+scalar) Enumeration arrays and converts it to equivalent integer array. For Variants containing Integer arrays (or scalar), can be converted to Enumerations via asEnum method
+Fixed (#87): SunJCECryptoProvider.base64Decode handles line breaks (Fixed as part of #9)
+Fixed (#97): Fixed BinaryDecoder.getVariant ArrayDimensions handling (via pull request #101)
+
+New (#79): Unsigned types have new method .parseTYPE(String, radix)
+New (#80): Client new method discoverServersOnNetwork
+
+1.03.341.0
+API Change (Github #49): NodeClass.Unspecified is removed
+
+Build Change (Github #43, #46, #48): The 'jdk6' profile is no longer active by default. NOTE! in order to be sure that the built jar works on java 6, please build using the 'jdk6' profile, this does require the use of maven toolchains and jdk6 installation.
+
+New (Github #22): Added certificate validation support, see org.opcfoundation.ua.cert package
+New (Github #50): Added StandardEngineeringUnits class that contains a set of standard units
+New/Changed (Github #52): Added StatusWrite and TimestampWrite enum constants to AccessLevel
+New (Github #61): Added support for TLS 1.2 with PFS
+
+Fixed (Github #18): TcpConnection.ReadThread now catches all Exceptions
+Fixed (Github #45): EncoderUtils.put now serializes based on the given class parameter
+Fixed (Github #47): Javadocs added, mostly autogenerated via maven-javadoc-plugin:fix
+Fixed/Changed (Github #53): BinaryDecoder.getVariant does now check total size based on array dimensions
+Fixed/Changed (Github #65): Structures are now cloneable by interface .clone method, also inherit from AbstractStructure
+Fixed (Github #60): Fixed constant 200 millisecond waits in service calls with certain condition
+Fixed (Github #66): XMLDecoder.getContentAsString does now return all data
+Fixed (Github #69): CertificateUtils.getApplicationUriOfCertificate() doesn't anymore expect all values to be strings
+
+Note (Github #10): Duplicate of Github #52
+Note (Github #63): LICENSE.txt updated/clarified
+
+1.03.340
+New (Github #32): Converted toa maven project 
+New (Github #28): Codegen classes to 1.03 spec
+Fixed (Github #39): StackUtils Executors fields changed to private
+Fixed (Github #36): Possible overflow when checking lenghts in BinaryDecoder
+Fixed (Github #30): StackUtils.shutdown clears all resources
+Fixed (Github #35): ExpandedNodeId.isNullNodeId should work also when the standard namespace URI is used instead of namespace index
+Note (Github #27 and #26): No changes needed for Union and Optional Structure Fields, because it is purely serializer implementation and out of scope for the stack, because the standard model does not define such types.
+
+1.02.337.8
+New: XMLFactoryCache, caches XML parsing related factories
+Fixed (Github #1): DateTime.parseDateTime typo fixed
+Fixed (Github #2): CloseSecureChannelRequest should be sent with CLOF header
+Fixed (Github #30): Proper shutdown for blocking work executor's rejectionhandler
+New: IEncoder.put() & EncoderUtils.put() overloads with Class argument
+
+1.02.337.6
+Fixed (Mantis 3149): Private keys encrypted with passwords containing non-ASCII characters cannot be loaded
+Fixed (Mantis 3139): sendPendingMessagesRunnable should not run in parallel
+Changed: TIMEOUT_TOLERANCE (constant 10%) for client side - extra time to wait before defining a request has timed out
+Changed: Generating cert with SUN JCE, to use subject names as plain string instead of CertificateIssuerName object.
+
+1.02.337.4
+Library update: Spongy Castle updated to version 1.52
+Fixed (Mantis 3114): NullPointerException from XmlDecoder.getVariant() if an unknown Structure type is read
+Fixed: potential NPE in EndpointUtil.createUserNameIdentityToken
+New (Mantis 3084): Enable connection handshake timeout to be configured
+Fixed (Mantis 3116): BAD_TIMEOUT constant loses stack trace in SecureChannelTcp
+Fixed (Mantis 3101): Renewed security token is not taken in use before the old one expires
+Fixed (Mantis 3108): Limit depth of recursion for variant arrays and diagnosticInfo.
+
+1.02.337.2
+Library update: Bouncy Castle updated to version 1.52, Spongy Castle updated to version1.51
+Library update: Support for HTTP Core classes version 4.4 added - a minor issue found in unit tests, 
+  so version 4.2 is still the default library suggested
+Changed (Mantis 2824): Extensible "security framework" allowing custom security engines to be incorporated
+- New interfaces: CryptoProvider and CertificateProvider, including fault implementations. See readme.txt for details
+New (Mantis 2823): Sample Nano Server
+- Minimal server intended to conform to Nano Embedded Device Server Profile.
+Fixed (Mantis 3041): Enable the endpointUrl check between GetEndpoints and CreateSession responses to be omitted
+- createSession can be called without discoveredEndpoints to omit the check
+Fixed (Mantis 3042): XmlDecoder.getByteString refers to javax.xml.bind, which is not available on all environments
+Fixed (Mantis 2590): Basic256Sha256 interoperability testing
+Fixed (Mantis 3005): Encoding and decoding Structures in Structures is not working against C/.NET Stack
+Fixed (Mantis 2495): GetEndpoints should return endpoints bound to the queried network interface only
+
+1.02.336.2
+
+Fixed (Mantis 2604): CloseSecureChannel never called
+Library Change (Mantis 2629): Replace Apache log4j with SLF, which is a more flexible logging framework
+- log4j can be used via the slf4-log4j bridge
+- see install.txt and readme.txt for details on usage
+Fixed (Mantis 2818): XmlElement.getNode() fails if the XML string contains a BOM
+Fixed (Mantis 2108): IPV6 should be supported
+- requires Java 7 or later
+- New: EndpointUtil.getInetAddresses(boolean enableIPv6) - called by default with 'true'
+Changed (Mantis 2633): SecureChannel should expose the SecurityConfiguration
+Changed (Mantis 2879): AsyncResult changed to a Generic class - and serviceRequestAsync changed to return AsyncResult<ServiceResponse>
+Changed: ObjectUtils.printObjectIds & shoDataType default changed to false to give prettier printing by default
+New: DateTime.is/setLocaleTimeInToString()
+
+1.02.335.7
+
+Fixed: XmlElement.toString() to not throw exception, if the XmlElement is not XML at all
+Fixed: StatusCode.getName() to provide a name for plain "BAD" as well
+Fixed: EncoderContext.getDefaultInstance() to use NamespaceTable.getDefaultInstance() (which is NEW)
+
+1.02.335.6
+
+Fixed (Mantis 2660) the FileType definition according to the fixed Nodeset2.xml 
+New (Mantis 1230): equals() and hashCode() generated to Structure types 
+New: ExpandedNode(uri,value) constructor (assuming serverIndex=0) 
+New: ObjectUtils.equals(left, right) 
+New: valueOf(int[]), valueOf(Integer[]), valueOf(UnsignedInteger[]) for all Enumeration types 
+New: LocalizedText(string) constructor (assuming NO_LOCALE) 
+New: IEncoder.put(), IDecoder.get, EncoderUtils 
+Fixed (Mantis 1810, which was supposed to be fixed already...): Do not check the securityMode when opening the channel - to enable only secure endpoints used for actual connections (since GetEndpoints must be performed over an insecure channel, anyway) 
+Fixed: Do not use namespace to calculate ExpandedNodeId.hashCode() - since the same namespace will give different hashCodes depending on which is used 
+Changed (Mantis 1534): NumericRange supports several dimensions 
+Changed: ExpandedNodeId used in places where NodeId was previously used (especially in Structure types). In addition, EncoderContext is required in some methods. The EncoderContext object is available from Server and Client objects. 
+Changed: XmlDecoder.setNamespaceTable() to enable mapping of namespace indexes between XmlElements and the target system 
+Changed: Refactored HttpsServerSecureChannel to inherit from AbstractServerSecureChannel 
+Fixed: CryptoUtil.asymmEncrypt() did not use the correct transformation - failing with 256 bit user password encryption.  
+New: DateTime.get/setStrFormat() & fromMillis() 
+New: ObjectUtils.set/getShowDataType(), set/getPrintObjectIds(), set/getShowByteDataAsHex(), set/getShowFullClassName() 
+Changed: Bad_CertificateInvalid error to Bad_SecurityChecksFailed 
+New: DataValue.clone() 
+Fixed: UnsignedLong constructor with BigInteger (equal to Long.MAX_VALUE) 
+Fixed (Mantis 2783): Use createNonce() with the symmetricEncryptionAlgorithm, instead of asymmetric, in OpenSecureChannel 
+ 
+1.02.334.10
+
+Fixed: CertificateUtils.createIssuerCertificate() dates
+Fixed: XmlDecoder, reading missing optional field.
+
+1.02.334.9
+
+Fixed: Provide Bad_TcpEndpointUrlInvalid from the server, if the requested endpoint is not found.
+
+1.02.334.8
+
+New: CertificateUtils.getApplicationUriOfCertificate()
+Fixed: BigCertificateExample
+Fixed: All compiler warnings removed (except for the generated core-classes).
+
+1.02.334.7
+
+Minor details with opening client connection.
+New: SecurityMode.ALL_102 & SECURE_102
+
+Mantis issues resolved
+
+2616: Certificate Subject does not define the hostname in the DC field
+1615: NodeId & ExpandedNodeId refer to Sun implementation of base64
+2607: Remove BASIC256SHA256 from SecurityModes.ALL
+2605: Keep HTTPS socket connection alive forever in the server
+
+
+1.02.334.6
+
+New: CertificateUtils.createIssuerCertificate()
+New: CertificateUtils.createHttpsCertificate()
+Changed: CertificateUtils.createApplicationInstanceCertificate() takes an optional issuerKeys, which is used to sign the certificate
+Changed: Examples to use createHttpsCertificate() and createIssuerCertificate() via ExampleKeys.getHttpsCertificate()
+Changed: StatusCode.OVERFLOW_MASK
+New: StatusCode.INFOTYPE_DATAVALUE & OVEFLOW_BIT
+New: CertificateUtils.set/getCertificateSignatureAlgorithm
+Removed: ClientExample2-4, TestStackExample
+
+Mantis issues resolved
+
+2588 StatusCode does not support InfoType
+2595 Incorrect CertificateSignatureAlgorithm used
+2593 Create basic implementation for Browse and Read to ServerExample1
+2590 HTTPS Certificate fields of the sample applications
+
+1.02.334.5
+
+IOP tested HTTPS against .NET and C stacks
+Updated Makefiles to enable building (and running) of samples from the command line 
+
+1.02.334.4
+
+Mantis issues resolved
+
+2493 	 GetEndpoints only returns endpoints of the "same" protocol
+2556 	 EndpointDescription.TransportProfileUri incorrect for HTTPS endpoints	
+ 	  	 
+1.02.334.3
+
+New: HttpsSecurityPolicy (moved TLS policies from SecurityMode to this separate class)
+New: HttpsSettings.get/setHttpsSecurityPolicy()
+Changed: HTTP core libraries updated to version 4.2.4/5
+
+Mantis issues resolved
+
+2467	Client side stack is not checking timeout based on RequestHeader
+
+1.02.334.2
+
+Mantis issues resolved
+
+2426	Certificate generated by SampleClient not read by the UA Configuration tool
+2436	GenerateCertificateExample fails
+2449	EndpointUtil.createX509IdentityToken defines an incorrect algorithm for UserTokenSignature/SignatureData
+
+1.02.334.1
+
+Mantis issues resolved
+
+1392	MaxRequestMessageSize not used
+2345	NPE during connection break
+2346	Bad_UnexpectedError instead of Bad_IdentityTokenRejected in client, if user token not supported by server
+2379	Uncaught exception after communication problem
+2308	XmlElement bigger than 64kB not marshalled properly via Read service
+2400	Inconsistency between UpdateEventDetails in spec and stacks
+
+
+1.02.334.0
+
+        Major features
+
+o   https
+
+o   Big certificates (keysize > 2048) and new SecurityPolicy: Basic256Sha256
+
+o   BouncyCastle upgraded to 1.47 
+
+o   SpongyCastle for Android security
+
+        Major changes
+
+o   "" URL has Endpoint socket discovery.
+
+o   Binding endpoint refactored. A socket can host different service servers.
+
+o   Cryptography refactored: enabling different security providers
+
+o   Server, Client and Application classes refactored.
+
+o   Client: Separation of connectUrl (socket address) and endpointUrl (identifier)
+
+o   IPv6 https
+
+ 
+
+        Changes & Fixes:
+
+o   Dead-lock from misbehaving Executor
+
+o   Worker thread count limited to 64 (changeble)
+
+ 
+
+Mantis issues resolved in this release:
+
+1810 GetEndpoints not available if SecurityPolicy.None not available
+
+1995 Open Secure Channel policy None  
+
+1836 Problem with key length larger 2048 bits   
+
+2074 HTTPS Support   
+
+1802 Troubleshoot with Publish Requests   
+
+1830 Provide abilility to use "available" security providers   
+
+2134 The JAVA Stack adds additional bytes to messages in the absence of security profiles that sign or encrypt the message chunk  
+
+2214 Memory leak in UaTcpServer; connections not released   
+
+ 

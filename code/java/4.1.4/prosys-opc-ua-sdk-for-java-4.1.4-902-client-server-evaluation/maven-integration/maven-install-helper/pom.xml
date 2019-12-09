@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.prosysopc.ua</groupId>
+	<artifactId>sdk-maven-install-helper</artifactId>
+	<version>0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+				<executions>
+					<!-- This disables default install task -->
+					<execution>
+						<id>default-install</id>
+						<phase>none</phase>
+					</execution>
+					<!-- This will install the SDK jar to your local (.m2) maven repo/cache -->
+					<execution>
+						<id>install-codegen</id>
+						<phase>install</phase>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<configuration>
+							<file>${project.basedir}/../../lib/prosys-opc-ua-sdk-client-server-evaluation-4.1.4-902.jar</file>
+							<javadoc>${project.basedir}/data/prosys-opc-ua-sdk-client-server-evaluation-4.1.4-902-javadoc.jar</javadoc>
+							<pomFile>${project.basedir}/data/pom.xml</pomFile>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

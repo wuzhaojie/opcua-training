@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="WIN-AG6E2ISEJ5R" name="org.opcfoundation.ua.unittests.AllTests" skipped="0" tests="72" time="436.804" timestamp="2015-06-02T13:21:01">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="os.name" value="Windows 8.1" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_25\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_25\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_25\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_25\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_25\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_25\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_25\jre\classes" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="C:\Program Files (x86)\apache-ant-1.9.4" />
+    <property name="java.runtime.version" value="1.8.0_25-b18" />
+    <property name="user.name" value="WIN-AG6E2ISEJ5R$" />
+    <property name="build.dir" value="build" />
+    <property name="user.language" value="en" />
+    <property name="build" value="337.2" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_25\jre\bin" />
+    <property name="ant.project.default-target" value="clean-build" />
+    <property name="java.version" value="1.8.0_25" />
+    <property name="version" value="1.02" />
+    <property name="user.timezone" value="America/Phoenix" />
+    <property name="unit.tests.classes.dir" value="unit_test_classes" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_25\jre\lib\endorsed" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="classes.dir" value="tmp" />
+    <property name="java.class.version" value="52.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_25\jre" />
+    <property name="status" value="Stable" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="D:\Jenkins\UA_Java\build.xml" />
+    <property name="os.version" value="6.3" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="25.25-b02" />
+    <property name="user.variant" value="" />
+    <property name="testharness.dir" value="testharness" />
+    <property name="ant.library.dir" value="C:\Program Files (x86)\apache-ant-1.9.4\lib" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="testharness_classes.dir" value="testharness_classes" />
+    <property name="user.script" value="" />
+    <property name="user.home" value="C:\WINDOWS\system32\config\systemprofile" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_25\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files (x86)\apache-ant-1.9.4\\bin;C:\Program Files\Java\jdk1.8.0_25\bin;;c:\Program Files\Saxonica\SaxonHE9.5N\bin;." />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.launch.Launcher run-unit-tests" />
+    <property name="java.class.path" value="C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-launcher.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-antlr.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-bcel.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-bsf.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-log4j.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-oro.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-regexp.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-resolver.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-apache-xalan2.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-commons-logging.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-commons-net.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-jai.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-javamail.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-jdepend.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-jmf.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-jsch.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-junit.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-junit4.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-launcher.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-netrexx.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-swing.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant-testutil.jar;C:\Program Files (x86)\apache-ant-1.9.4\lib\ant.jar;C:\Program Files\Java\jdk1.8.0_25\lib\tools.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.4 compiled on April 29 2014" />
+    <property name="project.name" value="OpcUa" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="java.io.tmpdir" value="C:\WINDOWS\TEMP\" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_25\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="user.dir" value="D:\Jenkins\UA_Java" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="D:\Jenkins\UA_Java" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="unit.tests.dir" value="unittests" />
+    <property name="ant.core.lib" value="C:\Program Files (x86)\apache-ant-1.9.4\lib\ant.jar" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="run-unit-tests" />
+    <property name="javadoc.dir" value="javadoc" />
+  </properties>
+  <testcase classname="org.opcfoundation.ua.unittests.TestListenableSocketChannel" name="testReadSynchronization" time="5.094" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestListenableSocketChannel" name="testWrite" time="1.625" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestListenableSocketChannel" name="testRead" time="0.078" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestListenableSocketChannel" name="testConnect" time="0.047" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestDateTime" name="testEncodeDecode" time="1.491" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestDateTime" name="testParse" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestDateTime" name="testMain" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testGetComponentType" time="0.015" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testArrayIterator" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testGetArrayLengths" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testCreateMultiDimArray" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testPrintArrayDeep" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testGetDimension" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testGetLength" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testDemuxArray" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestMultiDimensionArrayUtils" name="testMuxArray" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testNextIsHatched" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testGetNextHatched" time="0.016" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testRemoveNextHatchedIfAvailable" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testGetNextHatchedIfAvailable" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testWaitUntilIncubated" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testIdentityQueue" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testRemoveNextHatched" time="0.016" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testRemoveNextHatchedUninterruptibly" time="0.015" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testGetNext" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testSize" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testIterator" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testIsEmpty" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testIsIncubating" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testIncubate" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testHatch" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testClear" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testContains" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestIncubationQueue" name="testIsHatched" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestAsyncSelector" name="testSelect" time="0.094" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC256_SIGN_JCE" time="10.969" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testHttps_TLS_1_0" time="134.719" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testHttps_TLS_1_1" time="139.984" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC128RSA15_SIGN_ENCRYPT_JCE" time="14.641" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC256_SIGN_ENCRYPT_JCE" time="14.938" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC128RSA15_SIGN_JCE" time="5.437" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC256SHA256_SIGN_ENCRYPT_BC" time="14.844" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC256_SIGN_ENCRYPT_BC" time="15.344" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC128RSA15_SIGN_BC" time="6.14" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC256SHA256_SIGN_JCE" time="6.549" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC256SHA256_SIGN_ENCRYPT_JCE" time="14.983" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_BASIC128RSA15_SIGN_ENCRYPT_BC" time="11.593" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestStack" name="testOPC_TCP_NONE" time="4.641" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestAsyncSocket" name="testWrite" time="0.047" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestAsyncSocket" name="testAlarm" time="1.031" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestBinaryEncoder" name="testStructureArrays" time="0.063" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestBinaryEncoder" name="testVariant" time="0.062" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestBinaryEncoder" name="testStructures" time="0.047" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestBinaryEncoder" name="testDataValue" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestBinaryEncoder" name="testNodeId" time="0.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestNodeId" name="testEquals" time="0.016" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestError" name="testServiceUnsupported" time="0.156" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithIncorrectParametersWithCryptoUtil" time="3.0" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithIncorrectParametersAndExplicitCryptoProvider" time="3.328" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithExplicitCryptoProviderWithCryptoUtil" time="1.781" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testPemPrivKeyNoPassword" time="0.906" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithCryptoUtil" time="3.266" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithIncorrectParametersAndExplicitCryptoProviderWithCryptoUtil" time="1.359" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithIncorrectParameters" time="0.985" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerifyWithExplicitCryptoProvider" time="1.828" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testCASigned" time="1.875" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testHttpsCert" time="4.203" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testPemPrivKey" time="0.703" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testPfx" time="2.375" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testSignVerify" time="1.5" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testDerCert" time="1.438" />
+  <testcase classname="org.opcfoundation.ua.unittests.TestCertificates" name="testJks" time="2.515" />
+  <system-out><![CDATA[data readable
+Write done.
+semaphore acquired
+Closing.
+data readable
+OffsetToGregorianCalendarZero: 116444736000000000
+MIN_VALUE: 0 = 01/01/01 00:00:00.0000000 GMT
+MAX_VALUE: 2650153247990000000 = 01/01/99 23:59:59.0000000 GMT
+UTC Now: 130777248704870000 = 06/02/15 13:21:10.4870000 GMT
+Local Now: 130777248704870000 = TUE JUN 02 06:21:10 MST 2015
+[0, 0, 0] = 5
+[0, 0, 1] = 6
+[0, 0, 2] = 7
+[0, 0, 3] = 10
+[0, 1, 0] = 2
+[0, 1, 1] = 4
+[0, 1, 2] = 6
+[0, 1, 3] = 9
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 1281 ms
+ * Round-trip transfer rate: 0 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 485 ms
+ * Round-trip transfer rate: 2061 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 157 ms
+ * Round-trip transfer rate: 6369 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 109 ms
+ * Round-trip transfer rate: 9174 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 969 ms
+ * Round-trip transfer rate: 10319 KB/s
+End.
+
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 4063 ms
+ * Round-trip transfer rate: 0 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 1390 ms
+ * Round-trip transfer rate: 719 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 281 ms
+ * Round-trip transfer rate: 3558 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 60515 ms
+ * Round-trip transfer rate: 16 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 938 ms
+ * Round-trip transfer rate: 10660 KB/s
+End.
+
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 1875 ms
+ * Round-trip transfer rate: 0 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 1875 ms
+ * Round-trip transfer rate: 533 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 594 ms
+ * Round-trip transfer rate: 1683 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 60859 ms
+ * Round-trip transfer rate: 16 KB/s
+End.
+
+Test case:
+ * Uri = https://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 4250 ms
+ * Round-trip transfer rate: 2352 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 1047 ms
+ * Round-trip transfer rate: 0 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 1203 ms
+ * Round-trip transfer rate: 831 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 469 ms
+ * Round-trip transfer rate: 2132 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 296 ms
+ * Round-trip transfer rate: 3378 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 3204 ms
+ * Round-trip transfer rate: 3121 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 719 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 859 ms
+ * Round-trip transfer rate: 1164 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 454 ms
+ * Round-trip transfer rate: 2202 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 312 ms
+ * Round-trip transfer rate: 3205 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 3625 ms
+ * Round-trip transfer rate: 2758 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 500 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 453 ms
+ * Round-trip transfer rate: 2207 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 156 ms
+ * Round-trip transfer rate: 6410 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 62 ms
+ * Round-trip transfer rate: 16129 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 516 ms
+ * Round-trip transfer rate: 19379 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 672 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 828 ms
+ * Round-trip transfer rate: 1207 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 469 ms
+ * Round-trip transfer rate: 2132 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 375 ms
+ * Round-trip transfer rate: 2666 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 3765 ms
+ * Round-trip transfer rate: 2656 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 906 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 1328 ms
+ * Round-trip transfer rate: 753 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 454 ms
+ * Round-trip transfer rate: 2202 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 328 ms
+ * Round-trip transfer rate: 3048 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 3656 ms
+ * Round-trip transfer rate: 2735 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 625 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 875 ms
+ * Round-trip transfer rate: 1142 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 156 ms
+ * Round-trip transfer rate: 6410 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 78 ms
+ * Round-trip transfer rate: 12820 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = Sign
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 500 ms
+ * Round-trip transfer rate: 20000 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = Sign
+ * KeySize = 4096
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 453 ms
+ * Round-trip transfer rate: 2 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = Sign
+ * KeySize = 4096
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 453 ms
+ * Round-trip transfer rate: 2207 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = Sign
+ * KeySize = 4096
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 172 ms
+ * Round-trip transfer rate: 5813 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = Sign
+ * KeySize = 4096
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 62 ms
+ * Round-trip transfer rate: 16129 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = Sign
+ * KeySize = 4096
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 688 ms
+ * Round-trip transfer rate: 14534 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 547 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 844 ms
+ * Round-trip transfer rate: 1184 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 484 ms
+ * Round-trip transfer rate: 2066 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 328 ms
+ * Round-trip transfer rate: 3048 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic256Sha256
+ * Security Mode = SignAndEncrypt
+ * KeySize = 4096
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 3813 ms
+ * Round-trip transfer rate: 2622 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 515 ms
+ * Round-trip transfer rate: 1 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 719 ms
+ * Round-trip transfer rate: 1390 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 453 ms
+ * Round-trip transfer rate: 2207 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 250 ms
+ * Round-trip transfer rate: 4000 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15
+ * Security Mode = SignAndEncrypt
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 2844 ms
+ * Round-trip transfer rate: 3516 KB/s
+End.
+
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1
+ * Iteration: ..
+ * Median time: 406 ms
+ * Round-trip transfer rate: 2 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 1000
+ * Message Size = 1024
+ * Iteration: ..
+ * Median time: 485 ms
+ * Round-trip transfer rate: 2061 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 100
+ * Message Size = 10240
+ * Iteration: ..
+ * Median time: 266 ms
+ * Round-trip transfer rate: 3759 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 102400
+ * Iteration: ..
+ * Median time: 47 ms
+ * Round-trip transfer rate: 21276 KB/s
+End.
+
+Test case:
+ * Uri = opc.tcp://localhost:6125/TestServer
+ * Security Policy = http://opcfoundation.org/UA/SecurityPolicy#None
+ * Security Mode = None
+ * KeySize = 2048
+ * Concurrent Requests = 10
+ * Message Size = 1024000
+ * Iteration: ..
+ * Median time: 157 ms
+ * Round-trip transfer rate: 63694 KB/s
+End.
+
+connecting1
+Read
+Written
+Verified
+past 3
+past 5
+past 10
+5242880 never triggered
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;s=x
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;b=AAAAAAA=
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;g=e34f5562-5eb2-47b4-ba19-4ba7cec41946
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;i=5
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;s=x
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;b=AAAAAAA=
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;g=8c6acfb9-b84a-4113-961a-2d8be64c7686
+nsu=http%3A%2F%2Fopcfoundation.org%2FUA%2F;i=5
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>

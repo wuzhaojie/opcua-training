@@ -1,0 +1,10 @@
+<?xml version='1.0' ?>
+<TestLog>
+  <CreateTime>Wed Jan 09 14:18:48 EET 2013</CreateTime>
+  <ProcessName/>
+  <RandomDataFile>testharness/Random.bin</RandomDataFile>
+  <SecureChannelId>0</SecureChannelId>
+  <TestCaseFile>testharness/TestCases.xml</TestCaseFile>
+  <TestEvents/>
+  <StackEvent/>
+</TestLog>

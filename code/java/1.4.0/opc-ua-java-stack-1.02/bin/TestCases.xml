@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestSequence xmlns="http://opcfoundation.org/UA/Test" HaltOnError="true" LogDetailLevel="11">
+
+
+<!--  <TestCase SkipTest="false">
+    <Name>ArrayValues</Name>
+    <Seed>20001</Seed>
+    <ResponseSeed>20001</ResponseSeed>
+    <Start>82</Start>
+    <Count>250</Count>
+    <Parameter>
+      <Name>MaxStringLength</Name>
+      <Value>256</Value>
+    </Parameter>
+    <Parameter>
+      <Name>MaxArrayLength</Name>
+      <Value>10</Value>
+    </Parameter>
+  </TestCase>-->
+  
+  
+ 
+  <TestCase>
+    <Name>ScalarValues</Name>
+    <Seed>3</Seed>
+    <Start>0</Start>
+    <Count>30</Count>
+    <Parameter>
+      <Name>MaxStringLength</Name>
+      <Value>1024</Value>
+    </Parameter>
+  </TestCase>
+ <!-- <TestCase>
+    <Name>ArrayValues</Name>
+    <Seed>60000</Seed>
+    <Start>0</Start>
+    <Count>30</Count>
+    <Parameter>
+      <Name>MaxStringLength</Name>
+      <Value>1024</Value>
+    </Parameter>
+    <Parameter>
+      <Name>MaxArrayLength</Name>
+      <Value>256</Value>
+    </Parameter>
+  </TestCase>-->
+
+</TestSequence>

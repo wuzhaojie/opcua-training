@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<info primitiveTypes="element">
+	<element name='TestLog'>
+		<addDefaults/>
+		<element name='TestEvent' property='testEvents' class="org.opcfoundation.ua.stacktest.TestEvent"/>
+		<element name='StackEvent' property='stackEvents' class="org.opcfoundation.ua.stacktest.StackEvent"/>
+	</element>
+</info>

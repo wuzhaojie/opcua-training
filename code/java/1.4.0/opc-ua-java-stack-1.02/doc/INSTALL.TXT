@@ -1,0 +1,16 @@
+Building the JAVA native UA stack.
+----------------------------------
+
+Building the stack is done using ant (http://ant.apache.org/).
+
+ant -buildxml build.xml
+
+Building the examples.
+----------------------
+
+On Linux simply run: (also works with cygwin on windows)
+make -f Makefile.examples
+
+MS NMake users can use this:
+nmake /f Makefiles.examples.nmake
+

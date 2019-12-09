@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ua
+Bundle-SymbolicName: org.opcfoundation.ua
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ClassPath: lib/bcprov-jdk16-146.jar,
+ .,
+ lib/junit-4.5.jar,
+ lib/log4j-1.2.15.jar

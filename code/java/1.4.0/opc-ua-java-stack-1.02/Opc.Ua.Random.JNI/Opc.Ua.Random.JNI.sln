@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Opc.Ua.Random.JNI.dll", "Opc.Ua.Random.JNI.dll\Opc.Ua.Random.JNI.dll.vcproj", "{0556EA6B-3097-46EA-9189-1B08471C3EFD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RandomGenerator", "RandomGenerator\RandomGenerator.vcproj", "{2DFFAA33-69DB-4AAE-9141-012326EB9A53}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0556EA6B-3097-46EA-9189-1B08471C3EFD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0556EA6B-3097-46EA-9189-1B08471C3EFD}.Debug|Win32.Build.0 = Debug|Win32
+		{0556EA6B-3097-46EA-9189-1B08471C3EFD}.Release|Win32.ActiveCfg = Release|Win32
+		{0556EA6B-3097-46EA-9189-1B08471C3EFD}.Release|Win32.Build.0 = Release|Win32
+		{2DFFAA33-69DB-4AAE-9141-012326EB9A53}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2DFFAA33-69DB-4AAE-9141-012326EB9A53}.Debug|Win32.Build.0 = Debug|Win32
+		{2DFFAA33-69DB-4AAE-9141-012326EB9A53}.Release|Win32.ActiveCfg = Release|Win32
+		{2DFFAA33-69DB-4AAE-9141-012326EB9A53}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.prosysopc.ua
+Archiver-Version: Plexus Archiver
+Built-By: installer
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_60
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<codegenConfiguration>
+	<!-- 
+	This is a sample configuration on how to generate the DI, ADI and PLCopen
+	models that are no longer generated to the SDK jar in version 4.x.	
+	-->
+
+	<namespaceMappings>
+		
+		<!-- These are defaults for the models listed here -->
+		<!--
+		<namespaceMapping>
+			<uri>http://opcfoundation.org/UA/DI/</uri>
+			<packageName>com.prosysopc.ua.types.di</packageName>
+			<prefix>Di</prefix>
+		</namespaceMapping>
+		<namespaceMapping>
+			<uri>http://opcfoundation.org/UA/ADI/</uri>
+			<packageName>com.prosysopc.ua.types.adi</packageName>
+			<prefix>Adi</prefix>
+		</namespaceMapping>
+		<namespaceMapping>
+			<uri>http://PLCopen.org/OpcUa/IEC61131-3/</uri>
+			<packageName>com.prosysopc.ua.types.plc</packageName>
+			<prefix>Plc</prefix>
+		</namespaceMapping>
+		-->
+	</namespaceMappings>
+
+	<!-- Defines where models are loaded from. Use absolute paths, 'app.home' 
+		is set by the launcher scripts to parent directory of the launch scripts 
+		and can be used to make relative paths. Entries can be files or folders. 
+		All xml files from the folder are assumed to be model files -->
+	<modelSources>
+		<modelSource>${app.home}/models</modelSource>
+	</modelSources>
+
+	<!-- These define which namespace should be generated and which targets 
+		to use. See the Codegen Manual about the possible Generation Targets. -->
+	<generates>
+		<!-- Multiple generate blocks are possible -->
+		<generate>
+			<targets>all</targets>
+			<uris>
+				<!-- Multiple uris possible -->
+				<uri>http://opcfoundation.org/UA/DI/</uri>
+				<uri>http://opcfoundation.org/UA/ADI/</uri>
+				<uri>http://PLCopen.org/OpcUa/IEC61131-3/</uri>
+			</uris>
+			<outputs>
+				<code>${app.home}/output_code</code>
+				<resources>${app.home}/output_resources</resources>
+			</outputs>
+		</generate>
+	</generates>
+</codegenConfiguration>
