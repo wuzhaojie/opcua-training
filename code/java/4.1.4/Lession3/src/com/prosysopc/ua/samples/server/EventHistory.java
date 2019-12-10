@@ -1,9 +1,3 @@
-/**
- * Prosys OPC UA Java SDK
- * Copyright (c) Prosys OPC Ltd.
- * <http://www.prosysopc.com>
- * All rights reserved.
- */
 package com.prosysopc.ua.samples.server;
 
 import com.prosysopc.ua.EventData;
@@ -24,10 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- *
- */
 public class EventHistory {
+
   private final int capacity = 10000;
   private final List<EventData> events = new CopyOnWriteArrayList<EventData>();
   private final EventListener listener = new EventListener() {
@@ -47,20 +39,12 @@ public class EventHistory {
   };
   private final UaObjectNode node;
 
-  /**
-   * @param node
-   */
   public EventHistory(UaObjectNode node) {
     super();
     this.node = node;
     node.addEventListener(listener);
   }
 
-  /**
-   * @param eventIds
-   * @param operationResults
-   * @param operationDiagnostics
-   */
   public void deleteEvents(ByteString[] eventIds, StatusCode[] operationResults,
       DiagnosticInfo[] operationDiagnostics) {
     for (int i = events.size() - 1; i >= 0; i--) {
@@ -80,11 +64,11 @@ public class EventHistory {
    * @param endTime the end of the interval
    * @param maxValues maximum number of values to return
    * @param eventFilter the event filter that defines the fields and events to return
-   * @param firstIndex the index of the first entry in the history data to return (i.e. the
-   *        continuationPoint returned for the previous request)
+   * @param firstIndex the index of the first entry in the history data to return (i.e. the continuationPoint returned for the previous
+   * request)
    * @param history the list of values to fill in
-   * @return the first index that was not added to the history, in case there are more than
-   *         maxValues entries to return (i.e. the continuationPoint to return)
+   * @return the first index that was not added to the history, in case there are more than maxValues entries to return (i.e. the
+   * continuationPoint to return)
    */
   public Integer readEvents(DateTime startTime, DateTime endTime, int maxValues, EventFilter eventFilter,
       List<HistoryEventFieldList> history, int firstIndex) {

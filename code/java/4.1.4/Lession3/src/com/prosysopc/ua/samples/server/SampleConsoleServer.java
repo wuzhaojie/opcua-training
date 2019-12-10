@@ -7,10 +7,13 @@ import com.prosysopc.ua.UaApplication;
 import com.prosysopc.ua.UaApplication.Protocol;
 import com.prosysopc.ua.UserTokenPolicies;
 import com.prosysopc.ua.server.NodeBuilderException;
+import com.prosysopc.ua.server.NodeManagerListener;
 import com.prosysopc.ua.server.UaInstantiationException;
 import com.prosysopc.ua.server.UaServer;
 import com.prosysopc.ua.server.UaServerException;
 import com.prosysopc.ua.server.UserValidator;
+import com.prosysopc.ua.server.nodes.UaObjectNode;
+import com.prosysopc.ua.server.nodes.UaVariableNode;
 import com.prosysopc.ua.stack.builtintypes.DateTime;
 import com.prosysopc.ua.stack.builtintypes.LocalizedText;
 import com.prosysopc.ua.stack.cert.DefaultCertificateValidator;
@@ -39,13 +42,12 @@ public class SampleConsoleServer {
 
   private static Logger logger = LoggerFactory.getLogger(SampleConsoleServer.class);
 
-  private static int bigAddressSpaceNodes = 1000;
   protected static String APP_NAME = "SampleConsoleServer";
 
   protected MyHistorian myHistorian;
   protected MyNodeManager myNodeManager;
-  protected MyBigNodeManager myBigNodeManager;
   protected final UserValidator userValidator = new MyUserValidator();
+  protected NodeManagerListener myNodeManagerListener = new MyNodeManagerListener();
   protected final DefaultCertificateValidatorListener validationListener = new MyCertificateValidationListener();
 
   protected UaServer server;
@@ -89,14 +91,6 @@ public class SampleConsoleServer {
     // } catch (Exception e) {
     // throw new RuntimeException(e);
     // }
-  }
-
-  /**
-   * Create a sample node manager, which does not use UaNode objects. These are suitable for managing big address spaces for data that is in
-   * practice available from another existing subsystem.
-   */
-  private void createBigNodeManager() {
-    myBigNodeManager = new MyBigNodeManager(server, "http://www.prosysopc.com/OPCUA/SampleBigAddressSpace", bigAddressSpaceNodes);
   }
 
   /**
@@ -158,6 +152,8 @@ public class SampleConsoleServer {
       throws SecureIdentityException, IOException, UaServerException {
 
     server = new UaServer();
+
+    myHistorian = new MyHistorian(server.getAggregateCalculator());
 
     String javaVersion = System.getProperty("java.version");
     if (javaVersion.startsWith("1.6")) {
@@ -227,6 +223,15 @@ public class SampleConsoleServer {
     server.getSubscriptionManager().setMaxSubscriptionCount(50);
   }
 
+  protected void initHistory() {
+    for (UaVariableNode v : myNodeManager.getHistorizableVariables()) {
+      myHistorian.addVariableHistory(v);
+    }
+    for (UaObjectNode o : myNodeManager.getHistorizableEvents()) {
+      myHistorian.addEventHistory(o);
+    }
+  }
+
   protected void run(boolean enableSessionDiagnostics) throws UaServerException, StatusException {
 
     server.start();
@@ -269,5 +274,7 @@ public class SampleConsoleServer {
     sampleConsoleServer.createAddressSpace();
 
     sampleConsoleServer.run(true);
+
+    sampleConsoleServer.initHistory();
   }
 }

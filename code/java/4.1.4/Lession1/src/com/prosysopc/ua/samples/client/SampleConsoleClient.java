@@ -1,10 +1,7 @@
 package com.prosysopc.ua.samples.client;
 
 import com.prosysopc.ua.ApplicationIdentity;
-import com.prosysopc.ua.ContentFilterBuilder;
-import com.prosysopc.ua.DataTypeConversionException;
 import com.prosysopc.ua.MethodCallStatusException;
-import com.prosysopc.ua.MonitoredItemBase;
 import com.prosysopc.ua.SecureIdentityException;
 import com.prosysopc.ua.ServiceException;
 import com.prosysopc.ua.SessionActivationException;
@@ -15,98 +12,49 @@ import com.prosysopc.ua.UserIdentity;
 import com.prosysopc.ua.client.AddressSpaceException;
 import com.prosysopc.ua.client.GlobalServerList;
 import com.prosysopc.ua.client.InvalidServerEndpointException;
-import com.prosysopc.ua.client.MonitoredDataItem;
-import com.prosysopc.ua.client.MonitoredDataItemListener;
-import com.prosysopc.ua.client.MonitoredEventItem;
-import com.prosysopc.ua.client.MonitoredEventItemListener;
-import com.prosysopc.ua.client.MonitoredItem;
 import com.prosysopc.ua.client.ServerConnectionException;
 import com.prosysopc.ua.client.ServerList;
 import com.prosysopc.ua.client.ServerListBase;
 import com.prosysopc.ua.client.ServerListException;
 import com.prosysopc.ua.client.ServerStatusListener;
-import com.prosysopc.ua.client.Subscription;
-import com.prosysopc.ua.client.SubscriptionAliveListener;
-import com.prosysopc.ua.client.SubscriptionNotificationListener;
 import com.prosysopc.ua.client.UaClient;
 import com.prosysopc.ua.client.UaClientListener;
-import com.prosysopc.ua.nodes.MethodArgumentException;
-import com.prosysopc.ua.nodes.UaDataType;
 import com.prosysopc.ua.nodes.UaInstance;
-import com.prosysopc.ua.nodes.UaMethod;
 import com.prosysopc.ua.nodes.UaNode;
-import com.prosysopc.ua.nodes.UaObject;
-import com.prosysopc.ua.nodes.UaReferenceType;
 import com.prosysopc.ua.nodes.UaType;
-import com.prosysopc.ua.nodes.UaVariable;
-import com.prosysopc.ua.stack.builtintypes.DataValue;
-import com.prosysopc.ua.stack.builtintypes.DateTime;
 import com.prosysopc.ua.stack.builtintypes.DiagnosticInfo;
-import com.prosysopc.ua.stack.builtintypes.ExpandedNodeId;
 import com.prosysopc.ua.stack.builtintypes.LocalizedText;
 import com.prosysopc.ua.stack.builtintypes.NodeId;
-import com.prosysopc.ua.stack.builtintypes.QualifiedName;
 import com.prosysopc.ua.stack.builtintypes.StatusCode;
-import com.prosysopc.ua.stack.builtintypes.UnsignedByte;
-import com.prosysopc.ua.stack.builtintypes.UnsignedInteger;
-import com.prosysopc.ua.stack.builtintypes.UnsignedShort;
-import com.prosysopc.ua.stack.builtintypes.Variant;
 import com.prosysopc.ua.stack.cert.DefaultCertificateValidator;
 import com.prosysopc.ua.stack.cert.DefaultCertificateValidatorListener;
 import com.prosysopc.ua.stack.cert.PkiDirectoryCertificateStore;
-import com.prosysopc.ua.stack.common.ServiceResultException;
-import com.prosysopc.ua.stack.core.AccessLevelType;
-import com.prosysopc.ua.stack.core.AggregateConfiguration;
 import com.prosysopc.ua.stack.core.ApplicationDescription;
 import com.prosysopc.ua.stack.core.ApplicationType;
-import com.prosysopc.ua.stack.core.Argument;
-import com.prosysopc.ua.stack.core.Attributes;
-import com.prosysopc.ua.stack.core.BrowseDirection;
-import com.prosysopc.ua.stack.core.BrowsePathTarget;
-import com.prosysopc.ua.stack.core.DataChangeFilter;
-import com.prosysopc.ua.stack.core.DataChangeTrigger;
-import com.prosysopc.ua.stack.core.DeadbandType;
 import com.prosysopc.ua.stack.core.EUInformation;
-import com.prosysopc.ua.stack.core.ElementOperand;
 import com.prosysopc.ua.stack.core.EndpointDescription;
-import com.prosysopc.ua.stack.core.EventFilter;
-import com.prosysopc.ua.stack.core.EventNotifierType;
-import com.prosysopc.ua.stack.core.FilterOperator;
-import com.prosysopc.ua.stack.core.HistoryEventFieldList;
 import com.prosysopc.ua.stack.core.Identifiers;
-import com.prosysopc.ua.stack.core.LiteralOperand;
-import com.prosysopc.ua.stack.core.MonitoringMode;
 import com.prosysopc.ua.stack.core.NodeClass;
 import com.prosysopc.ua.stack.core.Range;
-import com.prosysopc.ua.stack.core.ReferenceDescription;
-import com.prosysopc.ua.stack.core.RelativePathElement;
 import com.prosysopc.ua.stack.core.ServerCapability;
 import com.prosysopc.ua.stack.core.ServerOnNetwork;
-import com.prosysopc.ua.stack.core.SimpleAttributeOperand;
-import com.prosysopc.ua.stack.core.TimestampsToReturn;
 import com.prosysopc.ua.stack.core.UserTokenPolicy;
 import com.prosysopc.ua.stack.transport.security.HttpsSecurityPolicy;
 import com.prosysopc.ua.stack.transport.security.SecurityMode;
-import com.prosysopc.ua.stack.utils.AttributesUtil;
 import com.prosysopc.ua.stack.utils.CertificateUtils;
-import com.prosysopc.ua.stack.utils.MultiDimensionArrayUtils;
-import com.prosysopc.ua.stack.utils.NumericRange;
 import com.prosysopc.ua.types.opcua.AnalogItemType;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URISyntaxException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
 import java.util.Set;
-import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -700,7 +648,6 @@ public class SampleConsoleClient {
     // Try to connect to the server already at this point.
     connect();
 
-
     // You have one node selected all the time, and all operations
     // target that. We can initialize that to the standard ID of the
     // RootFolder (unless it was specified from command line).
@@ -810,7 +757,7 @@ public class SampleConsoleClient {
   }
 
   protected String promptServerAddress() throws IllegalArgumentException {
-   while (true) {
+    while (true) {
       println("Enter the connection URL of the server to connect to\n(press enter to use the default address="
           + defaultServerAddress + "):");
       String url = readInput(false, defaultServerAddress);
