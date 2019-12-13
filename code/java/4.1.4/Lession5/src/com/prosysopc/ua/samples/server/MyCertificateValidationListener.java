@@ -1,12 +1,5 @@
-/**
- * Prosys OPC UA Java SDK
- * Copyright (c) Prosys OPC Ltd.
- * <http://www.prosysopc.com>
- * All rights reserved.
- */
 package com.prosysopc.ua.samples.server;
 
-import java.io.IOException;
 import java.security.cert.CertificateParsingException;
 import java.util.EnumSet;
 
@@ -17,10 +10,6 @@ import com.prosysopc.ua.stack.core.ApplicationDescription;
 import com.prosysopc.ua.stack.transport.security.Cert;
 import com.prosysopc.ua.stack.utils.CertificateUtils;
 
-
-/**
- * A sample implementation of a DefaultCertificateValidatorListener.
- */
 public class MyCertificateValidationListener implements DefaultCertificateValidatorListener {
 
   @Override
@@ -34,10 +23,9 @@ public class MyCertificateValidationListener implements DefaultCertificateValida
     }
 
     // Do not mind about URI...
-    //passedChecks.add(CertificateCheck.Trusted);
+    passedChecks.add(CertificateCheck.Trusted);
 
-    if (passedChecks
-        .containsAll(EnumSet.of(CertificateCheck.Trusted, CertificateCheck.Validity, CertificateCheck.Signature))) {
+    if (passedChecks.containsAll(EnumSet.of(CertificateCheck.Trusted, CertificateCheck.Validity, CertificateCheck.Signature))) {
       if (!passedChecks.contains(CertificateCheck.Uri)) {
         try {
           SampleConsoleServer.println("Client's ApplicationURI (" + applicationDescription.getApplicationUri()
@@ -51,5 +39,4 @@ public class MyCertificateValidationListener implements DefaultCertificateValida
     }
     return ValidationResult.Reject;
   }
-
 }
