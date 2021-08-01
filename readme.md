@@ -136,3 +136,25 @@ opc ua通讯推荐书籍：OPC Unified Architecture by Mahnke, Leitner and Damm 
 特性的建模规则 p51
 
 特性的语义是由它的浏览名称定义的，因此节点的每一个特性必须有一个唯一的浏览名称，特性不能成为任何层次化应用的源，这意味着特性不能再拥有特性。
+
+
+
+##  OPC UA培训问题梳理
+
+1. 自我介绍，想做哪些方面，想了解哪些方面
+2. opc da与opc ua的对接，mitrakon参与opcua开发；
+3. 本土的plc型号混乱，driver众多；IOT MQTT；采集opcua设备，转到自己的平台（普通的采集标准）
+4. opcua往IOT方向走，融合IT和OT；
+5. 两个PPT，自己的和李丹的ppt；
+6. 抽象类型：不可实例化，基础类型，一般是用子类型可以实例化；
+7. opcua服务自动发现的原理；
+8. opcua的安全策略和安全模式的区别；
+9. opcua中数字认证的原理；
+10. prosys opcua java sdk中client连接server时的重连机制；
+11. opcuaserver中实时订阅原理：
+12. 通过modeler进行建模，建出来的模型可以生成代码；
+13. channel和session的加密方式不一样；
+14. 教师系统；
+15. prosys代理的是谁的？
+16. 用opcua实现用户权限控制；
+17. 外网如何对内网的数据进行下至；
